@@ -1,26 +1,69 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/reset.css" />
-<?php /**
-       * 960.css framework here in case you need a quick css framework
-       * More information http://www.960.gs/
-    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/960.css" />
-       */
+<?php
+/**
+ * @package WordPress
+ * @subpackage Chameleon
+ * @since Chameleon 1.0
+ */
 ?>
-    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/text.css" />
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" />
-    <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/wp-classes.css" />
-    <title><?php bloginfo('name'); ?> - <?php bloginfo('description'); ?></title>
-<?php wp_head(); ?>
-</head>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title><?php
+	/*
+	 * Print the <title> tag based on what is being viewed.
+	 */
+	global $page, $paged;
 
+	wp_title( '|', true, 'right' );
+
+	// Add the blog name.
+	bloginfo( 'name' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		echo " | $site_description";
+
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		echo ' | ' . sprintf( __( 'Page %s', 'Chameleon' ), max( $paged, $page ) );
+
+	?></title>
+	
+	<!--[if lte IE 9]>
+		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/ie.css" type="text/css" media="screen" />
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!--webfonts-->
+
+	<!--Layout styles-->
+	<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+	<link rel="shortcut icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/favicon.png">
+	<link rel="apple-itouch-icon" type="image/png" href="<?php bloginfo('template_url'); ?>/images/apple-itouch-icon.png">
+	<?php 
+	
+	//template head
+	wp_head();
+	
+	?>
+	</head>
 <body <?php body_class(); ?>>
-<div class="body-container clearfix">
-    <div>
-        <h1><a href="<?php bloginfo('url');; ?>" title="Link to <?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a></h1>
-        <p><?php bloginfo('description'); ?></p>
-        <?php wp_nav_menu( array('container_class'=>'menu-header clearfix' , 'theme_location'=>'header_navigation')); ?>
-    </div>
-<!-- header -->
+<header class="container">
+	<div class="row">
+		<hgroup class="twelvecol last">
+			<h1><?php bloginfo('name'); ?></h1>
+			<h2><?php bloginfo('description'); ?></h2>
+		</hgroup>
+	</div><!--.row-->
+	<div class="row">
+		<div class="twelvecol last">
+			<nav>
+				<?php wp_nav_menu( array('menu' => 'Primary Navigation' )); ?>
+			</nav>
+		</div><!--.twelvecol-->
+	</div><!--.row-->
+</header><!--.container-->

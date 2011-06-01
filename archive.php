@@ -1,37 +1,43 @@
-<?php get_header(); ?>
-
-<!-- date archive -->
-<div class="body-content clearfix">
-
 <?php
-
 /**
- * Cases for querying by date
- * Queue the first post to find the date and type of date
- * for this type of archive page (if it is a date archive page)
+ * The archive template file.
  *
- * Then, rewind and do the normal loop
- **/
-    if (have_posts()) : the_post();
-?>
-    
-    <h1>
-        <?php if(is_day()) : ?>Daily Archives: <?php echo get_the_date(); ?>
-        <?php elseif(is_month()) : ?>Monthly Archives: <?php echo get_the_date('F Y'); ?>
-        <?php elseif(is_year()) : ?>Yearly Archives: <?php echo get_the_date('Y'); ?>
-        <?php endif; ?>
-    </h1>
+ * @package WordPress
+ * @subpackage Chameleon
+ * @since Chameleon 1.0
+ */
 
-<?php
-    endif; // have_posts()
-    rewind_posts();
-?>
-    
-<?php get_template_part('loop' , 'archive'); ?>
-    
-</div>
+get_header(); ?>
+<section class="container">
+	<div class="row">
+		<div class="eightcol">
+			<h3 class="page-title">
+				<?php if ( is_day() ) : ?>
+								<?php printf( __( 'Daily Archives: <span>%s</span>', 'Chameleon' ), get_the_date() ); ?>
+				<?php elseif ( is_month() ) : ?>
+								<?php printf( __( 'Monthly Archives: <span>%s</span>', 'Chameleon' ), get_the_date( 'F Y' ) ); ?>
+				<?php elseif ( is_year() ) : ?>
+								<?php printf( __( 'Yearly Archives: <span>%s</span>', 'Chameleon' ), get_the_date( 'Y' ) ); ?>
+				<?php else : ?>
+								<?php _e( 'Post Archives', 'Chameleon' ); ?>
+				<?php endif; ?>
+			</h3>
+			<?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
+			
+				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+					<h3 class="article_title"><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
+					<?php if ( has_post_thumbnail() ) { ?>
+						<aside class="page_article_image">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="thumbnail"><?php the_post_thumbnail('medium'); ?></a>
+						</aside>
+					<?php } //endif ?>
+					<p><?php the_excerpt(); ?></p>
+					<p class="clear"><h6><em>Posted on: <?php the_date(); ?></em></h6></p>
+				</article>
+				<div class="clear"></div>
+				
+			<?php endwhile; ?>
+		</div><!--.eightcol-->
 
-<div class="sidebar-container">
-    <?php get_sidebar(); ?>
-</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

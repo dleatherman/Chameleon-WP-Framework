@@ -1,35 +1,41 @@
-<?php get_header(); ?>
-
-<!-- author archive -->
-<div class="body-content clearfix">
-
 <?php
-/** query the first post to display the author's name and meta
- * then rewind the loop
- **/
-if (have_posts()) : the_post();
-?>
-    <div class="author-info clearfix">
-        <h1>Author Archives: <?php the_author(); ?></h1>
-        <div class="author-avatar">
-            <?php echo get_avatar(get_the_author_meta( 'user_email' )); ?>
-        </div><!--avatar-->
-        
-        <div class="author-description">
-            <?php the_author_meta('description'); ?>
-        </div>
-    </div>
+/**
+ * The author template file.
+ *
+ * @package WordPress
+ * @subpackage Chameleon
+ * @since Chameleon 1.0
+ */
 
-<?php
-    endif;
-    rewind_posts();
-?>
-    
-<?php get_template_part('loop' , 'author'); ?>
-    
-</div>
+get_header(); ?>
+<section class="container">
+	<div class="row">
+		<div class="eightcol">
+			<?php
+			/** query the first post to display the author's name and meta
+			 * then rewind the loop
+			 **/
+			if (have_posts()) : the_post();
+			?>
+			    <div class="author-info clearfix">
+			        <h3>Author Archives: <?php the_author(); ?></h3>
+			        <div class="author-avatar">
+			            <?php echo get_avatar(get_the_author_meta( 'user_email' )); ?>
+			        </div><!--avatar-->
+			        
+			        <div class="author-description">
+			            <?php the_author_meta('description'); ?>
+			        </div>
+			    </div>
+			
+			<?php
+			    endif;
+			    rewind_posts();
+			?>
+			    
+			<?php get_template_part('loop' , 'author'); ?>
 
-<div class="sidebar-container">
-    <?php get_sidebar(); ?>
-</div>
+		</div><!--.eightcol-->
+
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

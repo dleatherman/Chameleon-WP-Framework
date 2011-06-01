@@ -1,61 +1,189 @@
-/**
- * Theme Name: Radical Framework
- * Theme URI: http://www.radicalradical.com/
- * Description: This not really a theme. It's a starter that contains all the template files you will most likely need to help you get started on a theme of your own creation. This CSS file assumes that you need clears, and a CSS dropdown menu.
- * Author: Conrad Muan
- * Author URI: http://www.radicalradical.com/
- * Version: 1.0
- **/
+/*
+Theme Name: Chameleon Framework
+Theme URI: http://danleatherman.com/
+Description: This is a Chameleon wp theme framework built using the 1140px Chameleon grid (http://cssgrid.net/).
+Author: dan leatherman
+Author URI: http://danleatherman.com/
+Version: 1.0
+Tags: two-column, sidebar, widgets, Chameleon, media queries
+/* CSS Reset */
 
-/** Assumptions About Header Navigation **/
-.menu-header ul {
-    margin:0;
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,q,small,strong,sub,sup,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;margin:0;padding:0}article,aside,figure,figure img,figcaption,hgroup,footer,header,nav,section,video,object{display:block}a img{border:0}figure{position:relative}figure img{width:100%}
+
+
+/* The 1140px Grid by Andy Taylor Ð http://cssgrid.net Ð http://www.twitter.com/andytlr Ð http://www.catchingzebra.com */
+
+.container { padding-left: 20px; padding-right: 20px; }
+
+.row { width: 100%; max-width: 1140px; margin: 0 auto; overflow: hidden; }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol { margin-right: 3.8%; float: left; }
+
+.onecol { width: 4.85%; }
+
+.twocol { width: 13.5%; }
+
+.threecol { width: 22.15%; }
+
+.fourcol { width: 30.8%; }
+
+.fivecol { width: 39.45%; }
+
+.sixcol { width: 48.1%; }
+
+.sevencol { width: 56.75%; }
+
+.eightcol { width: 65.4%; }
+
+.ninecol { width: 74.05%; }
+
+.tencol { width: 82.7%; }
+
+.elevencol { width: 91.35%; }
+
+.twelvecol { width: 100%; float: left; }
+
+.last { margin-right: 0px; }
+
+img, object, embed { max-width: 100%; }
+
+/* Tipsy tooltips */
+.tipsy { font-family: 'Ubuntu', Helvetica, sans-serif; font-size: 10pt; opacity: 0.8; filter: alpha(opacity=80); background-repeat: no-repeat;  background-image: url('images/tipsy.gif'); padding: 5px; }
+.tipsy-inner {  background-color: black; color: white; max-width: 250px; padding: 5px 8px 4px 8px; text-align: center; }
+.tipsy-inner { -moz-border-radius:3px; -webkit-border-radius:3px; }
+.tipsy-north { background-position: top center; }
+.tipsy-south { background-position: bottom center; }
+.tipsy-east { background-position: right center; }
+.tipsy-west { background-position: left center; }
+
+/* Layout for desktop version */
+
+::-moz-selection {  }
+::selection      {  }
+
+body {
+
 }
 
-.menu-header li {
-    display:inline;
-    float:left;
-    list-style:none;
-    margin:0;
+img { border: 0; }
+
+ul, li, ol, li { list-style-type: none; }
+
+a {  }
+
+a:hover {  }
+
+.clear { clear: both; }
+
+/***Headings***/
+h1,h2,h3,h4,h5,h6 { font-weight: normal; }
+h1 { font-size: 40pt; }
+h2 { font-size: 30pt; }
+h3 { font-size: 22pt; }
+h4 { font-size: 16pt; }
+h5 { font-size: 13pt; }
+h6 { font-size: 10pt; }
+
+/***Header & Navigation***/
+
+
+/***ARTICLE STYLES***/
+
+/***page/post bottom nav***/
+
+.nav-previous, .nav-next, span.page-previous, span.page-next {
+	margin: 0 0 15px 0;
+	text-align: center;
+	width: 45%;
 }
 
-.menu-header li a {
-    display:block;
-    padding:5px 10px;
+.nav-previous a, .nav-next a, a span.page-previous, a span.page-next {
+	background: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color: #656565;
+	display: block;
+	padding: 10px;
 }
 
-.menu-header li:hover > a{
-    background:#cccccc;
+.nav-previous, span.page-previous {
+	float: left;
 }
 
-.menu-header .sub-menu .sub-menu {
-    position:absolute;
-    float:left;
-    left:100%;
-    width:100%;
-    top:0;
+.nav-next, span.page-next {
+	float: right;
 }
 
-.menu-header li:hover > .sub-menu {
-    display:block;
-    position:absolute;
-    z-index:9999;
+.nav-next a:hover, .nav-previous a:hover, a:hover span.page-previous, a:hover span.page-next {
+	background: #999;
+	color: #000;
+	text-shadow: 0 1px 0 #fff;
 }
 
-.menu-header li:hover > .sub-menu a {
-    background:#cccccc;
+/***Comment Styles***/
+
+ol.comment_list {
+	list-style-type: none;
 }
 
-.menu-header .sub-menu{
-    display:none;
+
+/***Sidebar Styles***/
+.widget {
+	margin: 15px 0 0 0;
+	text-align: left;
 }
 
-/** Assumptions about structure **/
-
-.body-container{
-    margin:0 auto;
-    width:960px;
+.widget ul {
+	list-style-type: none;
+	margin: 5px 0;
 }
 
-/** Clears Taken from 960.css **/
-.clear{clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0}.clearfix:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}* html .clearfix,*:first-child+html .clearfix{zoom:1}
+/***Search Form Styles***/
+
+
+/***Footer Styles***/
+
+footer {
+	
+}
+
+/* Smaller screens */
+@media only screen and (max-width: 1023px) {
+
+
+
+}/*/mediaquery*/
+
+/* Layout for mobile version */
+
+@media handheld, only screen and (max-width: 767px) {
+
+.row, .body, .container { width: 100%; margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; }
+
+.onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol { width: auto; float: none; margin-left: 0px; margin-right: 0px; padding-left: 20px; padding-right: 20px; }
+
+.widget {
+	width: 100%;
+}
+
+}/*/mediaquery*/
+
+@media handheld, only screen and (max-width: 480px) {
+
+
+}/*/mediaquery*/
+
+
+/* Provide higher res assets for iPhone 4 
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+ An example of how to override an image with one twice the size for iPhone 4. Specify the original pixel size with background-size.
+.download {
+background: url(../img/downarrow@2x.png) no-repeat;
+background-size: 27px 28px;
+}
+
+}
+*/

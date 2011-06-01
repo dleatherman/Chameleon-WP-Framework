@@ -1,18 +1,10 @@
-After writing dozens of WordPress themes from scratch, I wrote WP-Theme-Launchpad as a collection of template files and a functions.php file to help me write WordPress themes faster.
+Chameleon includes:
+- Packaged 1140px responsive grid framework by Andy Taylor http://cssgrid.net
+- Packaged Tipsy tooltips on any links <a ref="tipsy"> http://onehackoranother.com/projects/jquery/tipsy/
+- Respond.js for media queries in Internet Explorer by Scott Jehl https://github.com/scottjehl/Respond
+- HTML5 shiv for IE
+- Packaged Google CDN jQuery 1.5.2 minified
+- Two widget areas in the sidebar
+- Four widget areas in the footer
 
-This was originally written to help me out but after reading a thread on www.reddit.com/r/Wordpress, I was inspired to release this library to help out other developers in learning what the common WordPress functions do or to help developers in writing WordPress themes from scratch faster.
-
-It takes care of the basic code and template files so you don't have to rewrite the same things over and over again (things like loops).
-
-This is NOT a theme. It is just a library of template files that developers will most likely need when creating their own WordPress theme.
-
-It makes the following assumptions:
-- One sidebar and one menu wrapped in an init function
-- Post thumbnails
-- jQuery reregistered under Google CDN and enqueued
-
-WP Theme Launchpad also makes the following assumptions regarding CSS:
-- Packaged 960.css framework (if you need it. It is not linked by default)
-- Links a reset.css and a text.css, also from the 960.css framework
-- A wp-classes.css file contains default WordPress classes
-- A menu navigation comes pre-styled as a dropdown
+Chameleon is optimized for fast page load time but don't forget to gzip your files.

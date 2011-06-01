@@ -1,13 +1,18 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The single post template file.
+ *
+ * @package WordPress
+ * @subpackage Chameleon
+ * @since Chameleon 1.0
+ */
 
-<!-- single -->
-<div class="body-content clearfix">
-    
-<?php get_template_part('loop' , 'single'); ?>
-    
-</div>
+get_header(); ?>
+<section class="container">
+	<div class="row">
+		<div class="eightcol">
+			<?php get_template_part( 'loop', 'single' );?>
+		</div><!--.eightcol-->
 
-<div class="sidebar-container">
-    <?php get_sidebar(); ?>
-</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>

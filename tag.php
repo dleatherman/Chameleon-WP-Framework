@@ -1,15 +1,20 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file.
+ *
+ * @package WordPress
+ * @subpackage Chameleon
+ * @since Chameleon 1.0
+ */
 
-<!-- tag archives -->
-<div class="body-content clearfix">
-    
-    <h1>Tag Archives: <?php single_tag_title('', true); ?></h1>
-    
-<?php get_template_part('loop' , 'tag'); ?>
-    
-</div>
+get_header(); ?>
+<section class="container">
+	<div class="row">
+		<div class="eightcol">
+			<h3>Tag Archives: <?php single_tag_title('', true); ?></h3>
+			    
+			<?php get_template_part('loop' , 'tag'); ?>
+		</div><!--.eightcol-->
 
-<div class="sidebar-container">
-    <?php get_sidebar(); ?>
-</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
