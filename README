@@ -8,3 +8,5 @@ Chameleon includes:
 - Four widget areas in the footer
 
 Chameleon is optimized for fast page load time but don't forget to gzip your files.
+
+Thanks to radicalradical (https://github.com/radicalradical) for inspiration from WP-Theme-Launchpad (https://github.com/radicalradical/WP-Theme-Launchpad)
