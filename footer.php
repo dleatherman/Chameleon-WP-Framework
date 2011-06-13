@@ -40,8 +40,9 @@
 		</div>
 	</section><!--.container-->
 </footer>
-<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+<?php wp_print_scripts('jquery'); ?>
 <script src="<?php bloginfo('template_url'); ?>/js/js.js"></script>
+<?php wp_footer(); ?>
 </body>
 
 </html>

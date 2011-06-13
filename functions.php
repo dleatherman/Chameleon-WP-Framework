@@ -8,14 +8,16 @@
 add_action( 'after_setup_theme', 'Chameleon_theme_setup' );
 function Chameleon_theme_setup() {
 
-	// Disable the Admin Bar for everyone.
-	show_admin_bar(false);
-
 	// This theme uses post thumbnails
 	add_theme_support( 'post-thumbnails' );
 
-	// Remove jquery from front-end site
-	if ( !is_admin() ) wp_deregister_script('jquery');
+	// Use Google CDN jquery latest minified
+	function my_init_method() {
+	    wp_deregister_script( 'jquery' );
+	    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
+	}    
+ 
+	add_action('init', 'my_init_method');
 	
 	// Add Custom Nav Menus
 	add_theme_support( 'menus' );
